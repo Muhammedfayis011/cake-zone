@@ -28,15 +28,10 @@ export default function ComboGiftsView() {
             const waUrl = getProductWhatsAppUrl(item.name, item.price);
             return (
               <div className="pg3-card" key={item.id}>
-                <div className="pg3-img-wrap">
+                <a href={waUrl} target="_blank" rel="noreferrer" className="pg3-img-wrap" aria-label={`Order ${item.name} on WhatsApp`}>
                   {item.tag && <span className="pg3-tag" style={{ background: '#C59D5F' }}>{item.tag}</span>}
                   <img src={item.image} alt={item.name} />
-                  <div className="pg3-hover">
-                    <a href={waUrl} target="_blank" rel="noreferrer" className="pg3-order-btn">
-                      <WhatsAppIcon size={16} /> Order Now
-                    </a>
-                  </div>
-                </div>
+                </a>
                 <div className="pg3-info">
                   <h3>{item.name}</h3>
                   <div className="pg3-price-row">

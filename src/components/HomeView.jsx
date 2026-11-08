@@ -84,15 +84,10 @@ function ProductCarousel({ items, accentColor }) {
             const waUrl = getProductWhatsAppUrl(item.name, item.price);
             return (
               <div className="pcarousel-card" key={item.id}>
-                <div className="pcarousel-img-wrap">
+                <a href={waUrl} target="_blank" rel="noreferrer" className="pcarousel-img-wrap" aria-label={`Order ${item.name} on WhatsApp`}>
                   {item.tag && <span className="pcarousel-tag" style={{ background: accentColor }}>{item.tag}</span>}
                   <img src={item.image} alt={item.name} />
-                  <div className="pcarousel-hover-overlay">
-                    <a href={waUrl} target="_blank" rel="noreferrer" className="pcarousel-order-btn">
-                      <WhatsAppIcon size={16} /> Order Now
-                    </a>
-                  </div>
-                </div>
+                </a>
                 <div className="pcarousel-info">
                   <h4>{item.name}</h4>
                   <div className="pcarousel-price-row">
