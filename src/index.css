@@ -2689,20 +2689,39 @@ button {
   border-radius: var(--radius-pill);
 }
 
-.pcarousel-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-smooth);
+.pcarousel-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 29, 26, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
 }
 
-.pcarousel-card:hover .pcarousel-img-wrap img {
-  transform: scale(1.05);
+.pcarousel-card:hover .pcarousel-hover-overlay {
+  opacity: 1;
 }
 
-.pcarousel-hover-overlay,
 .pcarousel-order-btn {
-  display: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #fff;
+  color: var(--color-espresso);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.pcarousel-order-btn:hover {
+  background: var(--color-whatsapp);
+  color: #fff;
 }
 
 .pcarousel-info {
@@ -3373,20 +3392,34 @@ button {
   border-radius: var(--radius-pill);
 }
 
-.pg3-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-smooth);
+.pg3-hover {
+  position: absolute;
+  inset: 0;
+  background: rgba(42,29,26,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
 }
+.pg3-card:hover .pg3-hover { opacity: 1; }
 
-.pg3-card:hover .pg3-img-wrap img {
-  transform: scale(1.05);
-}
-
-.pg3-hover,
 .pg3-order-btn {
-  display: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #fff;
+  color: var(--color-espresso);
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.pg3-order-btn:hover {
+  background: var(--color-whatsapp);
+  color: #fff;
 }
 
 .pg3-info {
@@ -4064,6 +4097,21 @@ button {
 
 /* ── 8. TOUCH DEVICES ACCESSIBILITY (Apple & Google Guidelines) ────────── */
 @media (hover: none) and (pointer: coarse) {
+  .pcarousel-hover-overlay {
+    opacity: 1;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .pcarousel-order-btn {
+    pointer-events: auto;
+    font-size: 0.76rem;
+    padding: 8px 14px;
+    background: rgba(37, 211, 102, 0.96);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  }
+
   /* Minimum tap target of 44px for accessibility */
   button, a {
     min-height: 40px;
